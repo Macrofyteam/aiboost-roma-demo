@@ -1,204 +1,158 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <title>AI BOOST ROMA – Demo Chatbot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #031b3a;
-      --card: #ffffff;
-      --accent: #2e6eb5;
-      --text-main: #0d1b2a;
-      --text-light: #4f5b6b;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #123c7a 0, #020b1c 45%, #000000 100%);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .wrapper {
-      max-width: 960px;
-      width: 100%;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 28px 22px 24px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: 0.03em;
-    }
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .brand-title {
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--text-main);
-    }
-    .brand-sub {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .content {
-      margin-top: 8px;
-    }
-    h1 {
-      font-size: 24px;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
-    .subtitle {
-      font-size: 14px;
-      color: var(--text-light);
-      margin-bottom: 18px;
-    }
-    .highlight {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(46, 110, 181, 0.1);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .pill {
-      background: #f5f7fb;
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .pill b {
-      color: var(--text-main);
-    }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .cta-main {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: default;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 10px 24px rgba(46, 110, 181, 0.35);
-    }
-    .cta-sub {
-      font-size: 12px;
-      color: var(--text-light);
-    }
-    .cta-main span.icon {
-      font-size: 16px;
-    }
-    .footnote {
-      margin-top: 14px;
-      font-size: 11px;
-      color: #6f7c90;
-    }
-    @media (max-width: 600px) {
-      .card {
-        padding: 22px 18px 20px;
-      }
-      h1 {
-        font-size: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="card">
-      <div class="logo-row">
-        <div class="logo-mark">AI</div>
-        <div class="brand-text">
-          <div class="brand-title">AI BOOST ROMA</div>
-          <div class="brand-sub">Demo chatbot per attività locali</div>
-        </div>
-      </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI BOOST ROMA – Demo</title>
 
-      <div class="content">
-        <div class="highlight">Demo live · Risposte automatiche a clienti, email e prenotazioni</div>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #123c7a 0%, #020b1c 45%, #000000 100%);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #ffffff;
+            padding: 32px 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            color: #0d1b2a;
+            width: 100%;
+            max-width: 720px;
+            border-radius: 22px;
+            padding: 28px 22px 40px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box {
+            width: 42px;
+            height: 42px;
+            background: #2e6eb5;
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .brand-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .brand-sub {
+            font-size: 14px;
+            color: #4f5b6b;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 14px;
+            background: rgba(46,110,181,0.15);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #2e6eb5;
+            font-weight: 600;
+        }
+
+        h1 {
+            margin-top: 24px;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.55;
+            margin-top: 12px;
+            color: #4f5b6b;
+        }
+
+        .feature {
+            background: #f5f7fb;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 15px;
+            margin-top: 14px;
+            color: #4f5b6b;
+        }
+
+        .feature b {
+            color: #0d1b2a;
+        }
+
+        .cta {
+            display: block;
+            margin-top: 22px;
+            background: #2e6eb5;
+            color: #ffffff;
+            padding: 14px;
+            text-align: center;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 14px;
+            color: #6f7c90;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo-row">
+            <div class="logo-box">AI</div>
+            <div>
+                <div class="brand-title">AI BOOST ROMA</div>
+                <div class="brand-sub">Demo chatbot per attività locali</div>
+            </div>
+        </div>
+
+        <div class="tag">Demo live · Risposte automatiche a clienti, email e prenotazioni</div>
+
         <h1>Prova il chatbot come lo vedranno i tuoi clienti</h1>
-        <p class="subtitle">
-          Questa è una demo del sistema che AI Boost Roma può installare sulla tua attività:
-          il chatbot risponde da solo a domande, prenotazioni, orari e informazioni generali.
+
+        <p>
+            Questa è una demo del sistema che AI Boost Roma può installare sulla tua attività:
+            il chatbot risponde da solo a domande, prenotazioni, orari e informazioni generali.
         </p>
 
-        <div class="grid">
-          <div class="pill"><b>Risposte immediate</b> a domande su servizi, prezzi, orari e posizione.</div>
-          <div class="pill"><b>Gestione prenotazioni</b> con raccolta dati e richiesta di conferma automatica.</div>
-          <div class="pill"><b>Automazioni email</b> per ringraziare, confermare e ricordare appuntamenti.</div>
-        </div>
+        <div class="feature"><b>Risposte immediate</b> a domande su servizi, prezzi, orari e posizione.</div>
 
-        <div class="cta-row">
-          <button class="cta-main">
-            <span class="icon">💬</span>
-            Scrivi un messaggio in basso a destra per testare la demo
-          </button>
-          <div class="cta-sub">
-            Il chatbot che vedi qui può essere adattato a palestre, ristoranti, centri estetici,<br/>
-            barberie, B&amp;B e qualsiasi attività locale.
-          </div>
-        </div>
+        <div class="feature"><b>Gestione prenotazioni</b> con raccolta dati e richiesta di conferma automatica.</div>
 
-        <div class="footnote">
-          Demo a cura di Edoardo Bambini · AI Boost Roma – Per una versione personalizzata sulla tua attività,
-          rispondi direttamente nella chat.
-        </div>
-      </div>
+        <div class="feature"><b>Automazioni email</b> per ringraziare, confermare e ricordare appuntamenti.</div>
+
+        <a class="cta">💬 Scrivi un messaggio in basso a destra per testare la demo</a>
+
+        <p class="footer">
+            Il chatbot che vedi qui può essere adattato a palestre, ristoranti, centri estetici,
+            barberie, B&B e qualsiasi attività locale. <br><br>
+            Demo a cura di Edoardo Bambini · AI Boost Roma — Per una versione personalizzata sulla tua attività,
+            rispondi direttamente nella chat.
+        </p>
     </div>
-  </div>
 
-  <!-- TIDIO CHAT WIDGET -->
-  <script src="//code.tidio.co/qeqioyodfldgtwpzwn4fcerjczenmkpe.js" async></script>
+    <!-- TIDIO CHAT WIDGET -->
+    <script src="https://code.tidio.co/qeqioyodfldgtwpzwn4fcerjczenmkpe.js" async></script>
+
 </body>
 </html>
